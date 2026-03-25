@@ -19,7 +19,6 @@
 - `graph_viewer.html`：前端可视化（从本地选择 JSON 文件加载）
 - `count_graph.py`：命令行查看节点/边数量与 Top 节点
 - `data/`：默认放 Markdown 数据的目录（存在则优先使用）
-- `app.py`：Arxiv 论文“智能哨兵”（独立功能，见下方“可选：论文智能哨兵”）
 
 ## 环境要求
 
@@ -105,19 +104,3 @@ python run.py
 - 若模型把 JSON 包在 Markdown 代码块里，会用正则抽取 `{...}` 再校验
 
 如果仍失败，优先检查：模型端是否支持 `response_format={"type":"json_object"}`，或换更稳定的模型。
-
-## 可选：论文智能哨兵（Arxiv）
-
-`app.py` 是一个独立的 Streamlit 应用：抓取 Arxiv 论文并用 LLM 做相关性评分与摘要。
-
-额外依赖（项目的 `requirements.txt` 未包含）：
-
-```bash
-pip install streamlit arxiv pandas
-```
-
-启动：
-
-```bash
-streamlit run app.py
-```
